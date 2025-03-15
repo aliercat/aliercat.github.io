@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>godot类的继承研究</title>
+    <link href="/2025/03/15/godot%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E7%A0%94%E7%A9%B6/"/>
+    <url>/2025/03/15/godot%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E7%A0%94%E7%A9%B6/</url>
+    
+    <content type="html"><![CDATA[<p>问题：类继承后，子类未隐式调用父类的_ready()</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>godot</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Hello World</title>
     <link href="/2025/03/15/hello-world/"/>
     <url>/2025/03/15/hello-world/</url>
