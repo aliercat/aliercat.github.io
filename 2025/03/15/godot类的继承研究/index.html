@@ -19,15 +19,15 @@
   <meta name="author" content="aliercat">
   <meta name="keywords" content="">
   
-    <meta name="description" content="问题：类继承后，子类未隐式调用父类的_ready()">
+    <meta name="description" content="[TOC] Godot类继承学习Godot的类继承，运行时发现子类未隐式调用父类的_ready()： 123456# 子类-animal.gdextends &quot;res:&#x2F;&#x2F;Scripts&#x2F;base_animal.gd&quot;func _ready() -&gt; void:	print(&#x27;animal._ready() is called&#x27;) 12345# 父类-">
 <meta property="og:type" content="article">
 <meta property="og:title" content="godot类的继承研究">
 <meta property="og:url" content="https://aliercat.github.io/2025/03/15/godot%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E7%A0%94%E7%A9%B6/index.html">
 <meta property="og:site_name" content="alier">
-<meta property="og:description" content="问题：类继承后，子类未隐式调用父类的_ready()">
+<meta property="og:description" content="[TOC] Godot类继承学习Godot的类继承，运行时发现子类未隐式调用父类的_ready()： 123456# 子类-animal.gdextends &quot;res:&#x2F;&#x2F;Scripts&#x2F;base_animal.gd&quot;func _ready() -&gt; void:	print(&#x27;animal._ready() is called&#x27;) 12345# 父类-">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-03-15T15:49:38.000Z">
-<meta property="article:modified_time" content="2025-03-15T15:52:07.005Z">
+<meta property="article:modified_time" content="2025-03-16T14:21:47.568Z">
 <meta property="article:author" content="aliercat">
 <meta property="article:tag" content="godot">
 <meta name="twitter:card" content="summary_large_image">
@@ -223,7 +223,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          17 字
+          740 字
         
       </span>
     
@@ -234,7 +234,7 @@
         
         
         
-          1 分钟
+          7 分钟
         
       </span>
     
@@ -276,7 +276,44 @@
             
               <div class="markdown-body">
                 
-                <p>问题：类继承后，子类未隐式调用父类的_ready()</p>
+                <p>[TOC]</p>
+<h2 id="Godot类继承"><a href="#Godot类继承" class="headerlink" title="Godot类继承"></a>Godot类继承</h2><p>学习Godot的类继承，运行时发现子类未隐式调用父类的<code>_ready()</code>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 子类-animal.gd</span><br>extends <span class="hljs-string">&quot;res://Scripts/base_animal.gd&quot;</span><br><br>func _ready() -&gt; void:<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;animal._ready() is called&#x27;</span>)<br><br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 父类-base_animal.gd</span><br>extends CharacterBody2D<br><br>func _ready():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;base_animal._ready() is called&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>这个时候的输出只会输出：  </p>
+<figure class="highlight inform7"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs inform7"><span class="hljs-keyword">animal</span>._ready() <span class="hljs-keyword">is</span> called<br></code></pre></td></tr></table></figure>
+
+<p>如果注释掉子类中的<code>_ready()</code>函数，就会直接调用父类的<code>_ready()</code>。  </p>
+<p>尝试用构造函数<code>_init()</code>进行测试：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 子类-animal.gd</span><br>extends <span class="hljs-string">&quot;res://Scripts/base_animal.gd&quot;</span><br><br>func _init() -&gt; void:<br>	<span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;animal._init() is called&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 父类-base_animal.gd</span><br>extends CharacterBody2D<br><br>func _init():<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;base_animal._init() is called&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>这时子类和父类的打印都会输出：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">base_animal._init() <span class="hljs-keyword">is</span> <span class="hljs-keyword">called</span><br>animal._init() <span class="hljs-keyword">is</span> <span class="hljs-keyword">called</span><br></code></pre></td></tr></table></figure>
+<p>查阅<a target="_blank" rel="noopener" href="https://docs.godotengine.org/zh-cn/4.3/tutorials/scripting/gdscript/gdscript_basics.html#classes">文档</a>：</p>
+<blockquote>
+<p>请注意，<code>_ready()</code>、<code>_process()</code> 等（在文档中标为 <code>virtual</code> 且以下划线开头的）虚方法不受此限制。这些方法是专门用于自定义引擎行为的方法，可在 GDScript 中覆盖。信号、通知也可用于自定义引擎行为。</p>
+</blockquote>
+<p>这说明父类的<code>_ready()</code>是会被子类的<code>_ready()</code>覆盖的–当然前提是子类重载了它。</p>
+<p>实际上<code>_init()</code>也是虚方法，为什么不会被覆盖呢？我查看了引擎内的文档：</p>
+<blockquote>
+<p>● void _init() virtual</p>
+<p>实例化对象的脚本时调用，通常是在对象在内存中初始化之后（通过 GDScript 中的 Object.new() 或 C# 中的 new GodotObject）。也可以将其定义为接受参数的形式。该方法类似于大多数编程语言中的构造函数。</p>
+<p>注意：如果为 _init() 定义了必填的参数，则带脚本的 Object 只能直接创建。使用任何其他方式（例如 PackedScene.instantiate() 或 Node.duplicate()）创建时，该脚本的初始化都将失败。</p>
+</blockquote>
+<p><code>_ready()</code>是这么描述的：</p>
+<blockquote>
+<p>● void _ready() virtual</p>
+<p>当节点“就绪”时被调用，即当节点及其子节点都已经进入场景树时。如果该节点有子节点，将首先触发子节点的 _ready() 回调，稍后父节点将收到就绪通知。</p>
+<p>对应 Object._notification() 中的 NOTIFICATION_READY 通知。另请参阅用于变量的 @onready 注解。</p>
+<p>通常用于初始化。对于更早的初始化，可以使用 Object._init()。另见 _enter_tree()。</p>
+<p>注意：该方法对于每个节点可能仅调用一次。从场景树中移除一个节点后，并再次添加该节点时，将不会第二次调用 _ready()。这时可以通过使用 request_ready()，它可以在再次添加节点之前的任何地方被调用。</p>
+</blockquote>
+<p>根据这里的介绍，我猜测是因为<code>_init()</code>初始化更早，它是在实例化对象的脚本时调用的。子类脚本实例化的时候肯定要先实例化父类脚本，因此会依次调用<code>_init()</code>。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>除构造函数外，其他的虚函数仍会被子类的同名函数覆盖。若想调用父类的<code>_ready()</code>，两种方法：</p>
+<ol>
+<li>子类不写<code>_ready()</code></li>
+<li>在子类中调用父类同名函数： <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># 子类-animal.gd</span><br>extends <span class="hljs-string">&quot;res://Scripts/base_animal.gd&quot;</span><br><br>func _ready() -&gt; void:<br>    <span class="hljs-built_in">super</span>() <span class="hljs-comment"># 或者 super._ready()</span><br></code></pre></td></tr></table></figure></li>
+</ol>
 
                 
               </div>
