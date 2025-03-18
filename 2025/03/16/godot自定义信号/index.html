@@ -19,21 +19,22 @@
   <meta name="author" content="aliercat">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="介绍godot自定义信号很简单。对于Signal类，文档中是这样描述的：  类: Signal代表 Object 中某个信号的内置类型。描述信号 Signal 是内置的 Variant 类型，代表 Object 实例的某个信息。信号和所有 Variant 类型一样，可以在变量中存储、传递给函数。信号能够让所有连接的 Callable（及相应扩展对象）监听事件并作出反应，不必直接互相引用。这样就能让">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://aliercat.github.io/2025/03/15/hello-world/index.html">
+<meta property="og:title" content="godot自定义信号">
+<meta property="og:url" content="https://aliercat.github.io/2025/03/16/godot%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%A1%E5%8F%B7/index.html">
 <meta property="og:site_name" content="alier">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="介绍godot自定义信号很简单。对于Signal类，文档中是这样描述的：  类: Signal代表 Object 中某个信号的内置类型。描述信号 Signal 是内置的 Variant 类型，代表 Object 实例的某个信息。信号和所有 Variant 类型一样，可以在变量中存储、传递给函数。信号能够让所有连接的 Callable（及相应扩展对象）监听事件并作出反应，不必直接互相引用。这样就能让">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-15T15:31:19.281Z">
-<meta property="article:modified_time" content="2025-03-16T16:08:57.408Z">
+<meta property="article:published_time" content="2025-03-16T15:53:01.000Z">
+<meta property="article:modified_time" content="2025-03-18T14:45:35.479Z">
 <meta property="article:author" content="aliercat">
+<meta property="article:tag" content="godot">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Hello World - alier</title>
+  <title>godot自定义信号 - alier</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -201,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="godot自定义信号"></span>
           
         </div>
 
@@ -212,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-15 23:31" pubdate>
-          2025年3月15日 晚上
+        <time datetime="2025-03-16 23:53" pubdate>
+          2025年3月16日 晚上
         </time>
       </span>
     
@@ -224,7 +225,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          16 字
+          587 字
         
       </span>
     
@@ -235,7 +236,7 @@
         
         
         
-          1 分钟
+          5 分钟
         
       </span>
     
@@ -280,17 +281,17 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="未分类"
-        id="heading-ecf7ebb59328ebf2369ce693a2423566" role="tab" data-toggle="collapse" href="#collapse-ecf7ebb59328ebf2369ce693a2423566"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Godot"
+        id="heading-4a336d087aeb0390da10ee2ea7cb87f8" role="tab" data-toggle="collapse" href="#collapse-4a336d087aeb0390da10ee2ea7cb87f8"
         aria-expanded="true"
       >
-        未分类
-        <span class="list-group-count">(1)</span>
+        Godot
+        <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-ecf7ebb59328ebf2369ce693a2423566"
-           role="tabpanel" aria-labelledby="heading-ecf7ebb59328ebf2369ce693a2423566">
+      <div class="category-collapse collapse show" id="collapse-4a336d087aeb0390da10ee2ea7cb87f8"
+           role="tabpanel" aria-labelledby="heading-4a336d087aeb0390da10ee2ea7cb87f8">
         
         
           
@@ -299,10 +300,19 @@
     
       
       
-        <a href="/2025/03/15/hello-world/" title="Hello World"
+        <a href="/2025/03/15/godot%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E7%A0%94%E7%A9%B6/" title="godot类的继承研究"
+           class="list-group-item list-group-item-action
+           ">
+          <span class="category-post">godot类的继承研究</span>
+        </a>
+      
+    
+      
+      
+        <a href="/2025/03/16/godot%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%A1%E5%8F%B7/" title="godot自定义信号"
            class="list-group-item list-group-item-action
            active">
-          <span class="category-post">Hello World</span>
+          <span class="category-post">godot自定义信号</span>
         </a>
       
     
@@ -324,24 +334,88 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Hello World</h1>
+            <h1 id="seo-header">godot自定义信号</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+                <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>godot自定义信号很简单。对于Signal类，文档中是这样描述的：</p>
+<blockquote>
+<p><strong>类: Signal</strong><br>代表 Object 中某个信号的内置类型。<br><strong>描述</strong><br>信号 <code>Signal</code> 是内置的 <code>Variant</code> 类型，代表 <code>Object</code> 实例的某个信息。信号和所有 <code>Variant</code> 类型一样，可以在变量中存储、传递给函数。信号能够让所有连接的 <code>Callable</code>（及相应扩展对象）监听事件并作出反应，不必直接互相引用。这样就能让代码更灵活、更易于管理。<br>在 <code>GDScript</code> 中，信号可以使用 <code>signal</code> 关键字声明。在 C# 中，你可以在代理上使用 <code>[Signal]</code> 属性。</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript"><span class="token operator">></span><span class="token keyword">signal</span> attacked
+<span class="token operator">></span><span class="token comment"># 可以声明额外的参数。</span>
+<span class="token operator">></span><span class="token comment"># 这些参数必须在发出信号时传递。</span>
+<span class="token operator">></span><span class="token keyword">signal</span> <span class="token function">item_dropped</span><span class="token punctuation">(</span>item_name<span class="token punctuation">,</span> amount<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p>这里我称呼Callable所在的函数叫<strong>回调函数</strong></p>
+</blockquote>
+<p>一般我会用这个方法来发出信号和连接对应的回调函数：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript"><span class="token comment"># 发出信号</span>
+void <span class="token function">emit</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">)</span> vararg <span class="token keyword">const</span>
+<span class="token comment"># 连接函数</span>
+int <span class="token function">connect</span><span class="token punctuation">(</span>callable<span class="token punctuation">:</span> <span class="token class-name">Callable</span><span class="token punctuation">,</span> flags<span class="token punctuation">:</span> <span class="token class-name">int</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p>这个Callable类的参数就是调用的函数名，flags默认就是延迟连接，即在当前帧的末尾触发。</p>
+<p>我的项目中目前使用信号的过程是这样的：</p>
+<blockquote>
+<p><code>Node2</code>时间管理结点 – 绑定time_manager.gd</p>
+<ul>
+<li><code>Timer</code>子结点，该结点默认的timeout()连接到_on_timer_timeout()</li>
+</ul>
+</blockquote>
+<blockquote>
+<p><code>BaseAnimal</code>动物结点 – 绑定base_animal.gd</p>
+</blockquote>
+<p>时间管理结点在代码中类似这样：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript"><span class="token comment"># time_manager.gd</span>
+<span class="token keyword">extends</span> <span class="token class-name">Node2D</span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<span class="token keyword">signal</span> <span class="token function">day_passed</span><span class="token punctuation">(</span>current_day<span class="token punctuation">)</span>
+<span class="token keyword">var</span> day <span class="token operator">=</span> <span class="token number">1</span>
+<span class="token comment"># 每天现实时间</span>
+<span class="token keyword">var</span> second_per_day <span class="token operator">=</span> <span class="token number">2.0</span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<span class="token keyword">func</span> <span class="token function">_ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token class-name">void</span><span class="token punctuation">:</span>
+	<span class="token variable">$Timer</span><span class="token punctuation">.</span>wait_time <span class="token operator">=</span> second_per_day
+	<span class="token variable">$Timer</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure><div class="code-wrapper"><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<span class="token comment"># Timer 连接</span>
+<span class="token keyword">func</span> <span class="token function">_on_timer_timeout</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token class-name">void</span><span class="token punctuation">:</span>
+	day <span class="token operator">+=</span> <span class="token number">1</span>
+	day_passed<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span>day<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>这里的逻辑是每隔<code>second_per_day</code>，触发一次<code>_on_timer_timeout()</code>函数，因为Timer默认计时结束后自动重新启动。<br>在<code>_on_timer_timeout()</code>中会触发我自定义的信号的emit，里面的<code>day</code>赋值给<code>current_day</code>并传递到回调函数中的参数。</p>
+<p>动物节点的代码主要如下：</p>
+<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript"><span class="token keyword">class_name</span> <span class="token class-name">BaseAnimal</span> <span class="token keyword">extends</span> CharacterBody2D
+
+@<span class="token keyword">onready</span> <span class="token keyword">var</span> time_manager<span class="token punctuation">:</span> <span class="token class-name">Node2D</span> <span class="token operator">=</span> $<span class="token string">"../TimeManager"</span>
+
+<span class="token keyword">func</span> <span class="token function">_ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token class-name">void</span><span class="token punctuation">:</span>
+    <span class="token comment"># 信号连接</span>
+	time_manager<span class="token punctuation">.</span>day_passed<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>_on_day_passed<span class="token punctuation">)</span>
+
+<span class="token comment"># 自定义的回调函数</span>
+<span class="token keyword">func</span> <span class="token function">_on_day_passed</span><span class="token punctuation">(</span>day_num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"signal received, day_num = "</span><span class="token punctuation">,</span> day_num<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p>这里在脚本加载时将<code>day_passed</code>信号和自定义的<code>_on_day_passed(day_num)</code>连接，这样信号<code>emit(day)</code>时就会调用连接的函数<code>_on_day_passed(day_num)</code>,这里的<code>day</code>会传递给信号定义时的<code>current_day</code>参数，然后再传递给<code>day_num</code>。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ol>
+<li>定义信号</li>
+</ol>
+<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript"><span class="token keyword">signal</span> <span class="token function">day_passed</span><span class="token punctuation">(</span>current_day<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
+<ol start="2">
+<li>发出信号</li>
+</ol>
+<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript"><span class="token keyword">var</span> day <span class="token operator">=</span> <span class="token number">1</span>
+day_passed<span class="token punctuation">.</span><span class="token function">emit</span><span class="token punctuation">(</span>day<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
+<ol start="3">
+<li>绑定信号和回调函数</li>
+</ol>
+<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript">day_passed<span class="token punctuation">.</span><span class="token function">connect</span><span class="token punctuation">(</span>_on_day_passed<span class="token punctuation">)</span>
+<span class="token comment"># 自定义的回调函数</span>
+<span class="token keyword">func</span> <span class="token function">_on_day_passed</span><span class="token punctuation">(</span>day_num<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">"signal received, day_num = "</span><span class="token punctuation">,</span> day_num<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
+<p>输出：</p>
+<blockquote>
+<p>signal received, day_num &#x3D; 1</p>
+</blockquote>
 
                 
               </div>
@@ -360,7 +434,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/%E6%9C%AA%E5%88%86%E7%B1%BB/" class="category-chain-item">未分类</a>
+  <a href="/categories/Godot/" class="category-chain-item">Godot</a>
   
   
 
@@ -372,6 +446,13 @@
     </div>
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/godot/" class="print-no-link">#godot</a>
+      
+    </div>
+  
 </div>
 
 
@@ -380,8 +461,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>https://aliercat.github.io/2025/03/15/hello-world/</div>
+      <div>godot自定义信号</div>
+      <div>https://aliercat.github.io/2025/03/16/godot自定义信号/</div>
     </div>
     <div class="license-meta">
       
@@ -393,7 +474,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月15日</div>
+          <div>2025年3月16日</div>
         </div>
       
       
@@ -425,15 +506,15 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/15/godot%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E7%A0%94%E7%A9%B6/" title="godot类的继承研究">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">godot类的继承研究</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/2025/03/15/godot%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E7%A0%94%E7%A9%B6/" title="godot类的继承研究">
+                        <span class="hidden-mobile">godot类的继承研究</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
