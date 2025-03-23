@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>项目farm的类的逻辑</title>
+    <link href="/2025/03/21/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84%E7%B1%BB%E7%9A%84%E9%80%BB%E8%BE%91/"/>
+    <url>/2025/03/21/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84%E7%B1%BB%E7%9A%84%E9%80%BB%E8%BE%91/</url>
+    
+    <content type="html"><![CDATA[<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>设计项目中各动物、产物的类的逻辑</p><h2 id="类别"><a href="#类别" class="headerlink" title="类别"></a>类别</h2><p>目前有动物、产物两大类别，随项目完善，类逻辑会逐渐填充并更新</p><h3 id="动物"><a href="#动物" class="headerlink" title="动物"></a>动物</h3><p>项目中，动物首先作为AI型物体，需要根据脚本设计自行移动并判断碰撞边缘，因此，基类为<code>Node2D-&gt;...-&gt;CharactorBody2D</code>。在此基础上创建<code>BaseAnimal</code>类。</p><p><code>BaseAnimal</code>需要实现的功能为所有动物都需要的功能（目前）：</p><ul><li>自主移动</li><li>碰撞检测</li><li>动画切换</li><li>拖拽移动（动物可以被鼠标提起并移动）</li></ul><p><code>BaseAnimal</code>结点下需要一个Timer用于进行动画切换。</p><hr><p>动物分为幼崽和成熟个体，因此设计两个子类<code>AnimalBaby</code>和<code>Animal</code>类：</p><p><code>AnimalBaby</code>需要实现的额外功能：</p><ul><li>计时器（成长天数）</li><li>长大（替换模型）</li></ul><p><code>Animal</code>需要实现的额外功能：</p><ul><li>计时器（产出天数）</li><li>产出产物（新增产物模型）</li></ul><p>此处的计时器信号由世界场景中的计时器<code>Timer</code>发出, 由动物负责接受信号并长大或产出产物。<code>结点内的计时器只负责切换动物动画状态</code></p><p>对应地，子类个体如小鸡和鸡分别为上面两个类的子类，需要修改的部分仅为 <code>成长天数或产出天数&amp;模型</code></p><blockquote><p>后续或许可以添加价格相关属性？</p></blockquote><h3 id="产品"><a href="#产品" class="headerlink" title="产品"></a>产品</h3><p>目前的设想的产品的基本属性和功能为：</p><ul><li>买入价格</li><li>卖出价格</li><li>折扣（实际买入价格会在折扣后计算）</li><li>是否可被加工</li><li>点击收取进仓库</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Farm</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>godot自定义信号</title>
     <link href="/2025/03/16/godot%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%A1%E5%8F%B7/"/>
     <url>/2025/03/16/godot%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%A1%E5%8F%B7/</url>
