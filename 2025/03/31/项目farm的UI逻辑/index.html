@@ -19,22 +19,28 @@
   <meta name="author" content="aliercat">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Godot类继承学习Godot的类继承，运行时发现子类未隐式调用父类的_ready()： # 子类-animal.gd extends &quot;res:&#x2F;&#x2F;Scripts&#x2F;base_animal.gd&quot;  func _ready() -&gt; void: 	print(&#39;animal._ready() is called&#39;)  # 父类-base_animal.gd extends CharacterBod">
+    <meta name="description" content="在项目中，UI的逻辑也很重要。首先需要确定相对于显示的场景物体而言，项目应该用多大尺寸作为预设开发。 在Godot中，游戏世界的可见区域叫做视口（Viewport），它决定如何将游戏内容渲染到屏幕上；窗口（Window）是操作系统层面的窗口。  在Godot针对桌面平台开发时，视口大小也是初始化的窗口大小  由于要开发一款类似桌面牧场的项目，项目的视口不能像通常的分辨率如640x320(16:9)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="godot类的继承研究">
-<meta property="og:url" content="https://aliercat.github.io/2025/03/15/godot%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E7%A0%94%E7%A9%B6/index.html">
+<meta property="og:title" content="项目farm的UI逻辑">
+<meta property="og:url" content="https://aliercat.github.io/2025/03/31/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/index.html">
 <meta property="og:site_name" content="alier">
-<meta property="og:description" content="Godot类继承学习Godot的类继承，运行时发现子类未隐式调用父类的_ready()： # 子类-animal.gd extends &quot;res:&#x2F;&#x2F;Scripts&#x2F;base_animal.gd&quot;  func _ready() -&gt; void: 	print(&#39;animal._ready() is called&#39;)  # 父类-base_animal.gd extends CharacterBod">
+<meta property="og:description" content="在项目中，UI的逻辑也很重要。首先需要确定相对于显示的场景物体而言，项目应该用多大尺寸作为预设开发。 在Godot中，游戏世界的可见区域叫做视口（Viewport），它决定如何将游戏内容渲染到屏幕上；窗口（Window）是操作系统层面的窗口。  在Godot针对桌面平台开发时，视口大小也是初始化的窗口大小  由于要开发一款类似桌面牧场的项目，项目的视口不能像通常的分辨率如640x320(16:9)">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-03-15T15:49:38.000Z">
-<meta property="article:modified_time" content="2025-03-31T07:29:13.236Z">
+<meta property="og:image" content="https://aliercat.github.io/image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image1.png">
+<meta property="og:image" content="https://aliercat.github.io/image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image2.png">
+<meta property="og:image" content="https://aliercat.github.io/image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image3.png">
+<meta property="og:image" content="https://aliercat.github.io/image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image4.png">
+<meta property="article:published_time" content="2025-03-31T07:21:50.000Z">
+<meta property="article:modified_time" content="2025-03-31T13:00:02.666Z">
 <meta property="article:author" content="aliercat">
 <meta property="article:tag" content="Godot">
+<meta property="article:tag" content="UI">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://aliercat.github.io/image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image1.png">
   
   
   
-  <title>godot类的继承研究 - alier</title>
+  <title>项目farm的UI逻辑 - alier</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -202,7 +208,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="godot类的继承研究"></span>
+            <span id="subtitle" data-typed-text="项目farm的UI逻辑"></span>
           
         </div>
 
@@ -213,8 +219,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-03-15 23:49" pubdate>
-          2025年3月15日 晚上
+        <time datetime="2025-03-31 15:21" pubdate>
+          2025年3月31日 下午
         </time>
       </span>
     
@@ -225,7 +231,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          717 字
+          526 字
         
       </span>
     
@@ -236,7 +242,7 @@
         
         
         
-          6 分钟
+          5 分钟
         
       </span>
     
@@ -281,17 +287,17 @@
     
     <div class="category row nomargin-x">
       <a class="category-item 
-          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Godot"
-        id="heading-4a336d087aeb0390da10ee2ea7cb87f8" role="tab" data-toggle="collapse" href="#collapse-4a336d087aeb0390da10ee2ea7cb87f8"
+          list-group-item category-item-action col-10 col-md-11 col-xm-11" title="Farm"
+        id="heading-a7806cd555d08a38aea7c0ce59cc0964" role="tab" data-toggle="collapse" href="#collapse-a7806cd555d08a38aea7c0ce59cc0964"
         aria-expanded="true"
       >
-        Godot
+        Farm
         <span class="list-group-count">(2)</span>
         <i class="iconfont icon-arrowright"></i>
       </a>
       
-      <div class="category-collapse collapse show" id="collapse-4a336d087aeb0390da10ee2ea7cb87f8"
-           role="tabpanel" aria-labelledby="heading-4a336d087aeb0390da10ee2ea7cb87f8">
+      <div class="category-collapse collapse show" id="collapse-a7806cd555d08a38aea7c0ce59cc0964"
+           role="tabpanel" aria-labelledby="heading-a7806cd555d08a38aea7c0ce59cc0964">
         
         
           
@@ -300,19 +306,19 @@
     
       
       
-        <a href="/2025/03/15/godot%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF%E7%A0%94%E7%A9%B6/" title="godot类的继承研究"
+        <a href="/2025/03/31/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/" title="项目farm的UI逻辑"
            class="list-group-item list-group-item-action
            active">
-          <span class="category-post">godot类的继承研究</span>
+          <span class="category-post">项目farm的UI逻辑</span>
         </a>
       
     
       
       
-        <a href="/2025/03/16/godot%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%A1%E5%8F%B7/" title="godot自定义信号"
+        <a href="/2025/03/21/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84%E7%B1%BB%E7%9A%84%E9%80%BB%E8%BE%91/" title="项目farm的类的逻辑"
            class="list-group-item list-group-item-action
            ">
-          <span class="category-post">godot自定义信号</span>
+          <span class="category-post">项目farm的类的逻辑</span>
         </a>
       
     
@@ -334,12 +340,12 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">godot类的继承研究</h1>
+            <h1 id="seo-header">项目farm的UI逻辑</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年3月31日 下午
+                    本文最后更新于 2025年3月31日 晚上
                   
                 
               </p>
@@ -347,65 +353,22 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Godot类继承"><a href="#Godot类继承" class="headerlink" title="Godot类继承"></a>Godot类继承</h2><p>学习Godot的类继承，运行时发现子类未隐式调用父类的<code>_ready()</code>：</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript"><span class="token comment"># 子类-animal.gd</span>
-<span class="token keyword">extends</span> <span class="token string">"res://Scripts/base_animal.gd"</span>
-
-<span class="token keyword">func</span> <span class="token function">_ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token class-name">void</span><span class="token punctuation">:</span>
-	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'animal._ready() is called'</span><span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript"><span class="token comment"># 父类-base_animal.gd</span>
-<span class="token keyword">extends</span> <span class="token class-name">CharacterBody2D</span>
-
-<span class="token keyword">func</span> <span class="token function">_ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'base_animal._ready() is called'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<p>这个时候的输出只会输出：  </p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript">animal<span class="token punctuation">.</span><span class="token function">_ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">is</span> called<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></div></figure>
-
-<p>如果注释掉子类中的<code>_ready()</code>函数，就会直接调用父类的<code>_ready()</code>。  </p>
-<p>尝试用构造函数<code>_init()</code>进行测试：</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript"><span class="token comment"># 子类-animal.gd</span>
-<span class="token keyword">extends</span> <span class="token string">"res://Scripts/base_animal.gd"</span>
-
-<span class="token keyword">func</span> <span class="token function">_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token class-name">void</span><span class="token punctuation">:</span>
-	<span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'animal._init() is called'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript"><span class="token comment"># 父类-base_animal.gd</span>
-<span class="token keyword">extends</span> <span class="token class-name">CharacterBody2D</span>
-
-<span class="token keyword">func</span> <span class="token function">_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token function">print</span><span class="token punctuation">(</span><span class="token string">'base_animal._init() is called'</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure>
-<p>这时子类和父类的打印都会输出：</p>
-<figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript">base_animal<span class="token punctuation">.</span><span class="token function">_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">is</span> called
-animal<span class="token punctuation">.</span><span class="token function">_init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">is</span> called<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></div></figure>
-<p>查阅<a target="_blank" rel="noopener" href="https://docs.godotengine.org/zh-cn/4.3/tutorials/scripting/gdscript/gdscript_basics.html#classes">文档</a>：</p>
+                <p>在项目中，UI的逻辑也很重要。首先需要确定相对于显示的场景物体而言，项目应该用多大尺寸作为预设开发。</p>
+<p>在Godot中，游戏世界的可见区域叫做视口（Viewport），它决定如何将游戏内容渲染到屏幕上；窗口（Window）是操作系统层面的窗口。</p>
 <blockquote>
-<p>请注意，<code>_ready()</code>、<code>_process()</code> 等（在文档中标为 <code>virtual</code> 且以下划线开头的）虚方法不受此限制。这些方法是专门用于自定义引擎行为的方法，可在 GDScript 中覆盖。信号、通知也可用于自定义引擎行为。</p>
+<p>在Godot针对桌面平台开发时，视口大小也是初始化的窗口大小</p>
 </blockquote>
-<p>这说明父类的<code>_ready()</code>是会被子类的<code>_ready()</code>覆盖的–当然前提是子类重载了它。</p>
-<p>实际上<code>_init()</code>也是虚方法，为什么不会被覆盖呢？我查看了引擎内的文档：</p>
+<p>由于要开发一款类似桌面牧场的项目，项目的视口不能像通常的分辨率如640x320(16:9)，320x240(4:3)一样设置，本项目采用640x160(4:1)的视口，在场景中的Camera2D的Zoom采用2，这样显示时ai小鸡的移动不会有“掉帧”的感觉；这个时候实际渲染的尺寸就会变成320x80，相当于这里的每个像素映射到640x160窗口的四个像素，这样做后ai小鸡移动的“掉帧”现象就消失了，如<a href="#1">图1</a>。</p>
 <blockquote>
-<p>● void _init() virtual</p>
-<p>实例化对象的脚本时调用，通常是在对象在内存中初始化之后（通过 GDScript 中的 Object.new() 或 C# 中的 new GodotObject）。也可以将其定义为接受参数的形式。该方法类似于大多数编程语言中的构造函数。</p>
-<p>注意：如果为 _init() 定义了必填的参数，则带脚本的 Object 只能直接创建。使用任何其他方式（例如 PackedScene.instantiate() 或 Node.duplicate()）创建时，该脚本的初始化都将失败。</p>
+<p>我在摄像头范围的边缘加了边界，ai小鸡掉到边界地面上，移动的范围不会超过摄像头的捕捉范围</p>
 </blockquote>
-<p><code>_ready()</code>是这么描述的：</p>
+<p><a id='1'></a><br><img src="/../image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image1.png" srcset="/img/loading.gif" lazyload alt="图1"><br>但Zoom&#x3D;2会导致另一个问题：这个相当于放大镜观察，如果要设置游戏内UI，怎么布局UI的位置呢，总不能手动调整吧？</p>
+<p><strong>CanvasLayer</strong>解决了这一问题，作为一个独立渲染的结点，可以继续在原视口640x160中布局绘制，CanvasLayer会保证UI始终完整地显示在屏幕上，不受摄像机位置&#x2F;缩放的影响。</p>
+<p><a href="#2">图2</a>是我设计的UI界面，放在游戏世界结点下的CanvasLayer中，在编辑器中效果如<a href="#3">图3</a>，可以看到它实际还是占了640x160的布局，但是运行起来后，效果如<a href="#4">图4</a>。<br><a id='2'></a><br><img src="/../image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image2.png" srcset="/img/loading.gif" lazyload alt="图2"><br><a id='3'></a><br><img src="/../image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image3.png" srcset="/img/loading.gif" lazyload alt="图3"><br><a id='4'></a><br><img src="/../image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image4.png" srcset="/img/loading.gif" lazyload alt="图4"></p>
 <blockquote>
-<p>● void _ready() virtual</p>
-<p>当节点“就绪”时被调用，即当节点及其子节点都已经进入场景树时。如果该节点有子节点，将首先触发子节点的 _ready() 回调，稍后父节点将收到就绪通知。</p>
-<p>对应 Object._notification() 中的 NOTIFICATION_READY 通知。另请参阅用于变量的 @onready 注解。</p>
-<p>通常用于初始化。对于更早的初始化，可以使用 Object._init()。另见 _enter_tree()。</p>
-<p>注意：该方法对于每个节点可能仅调用一次。从场景树中移除一个节点后，并再次添加该节点时，将不会第二次调用 _ready()。这时可以通过使用 request_ready()，它可以在再次添加节点之前的任何地方被调用。</p>
+<p>中间的小方格子渲染被我重置了，不用在意，我的项目背景是透明的，所以看得到我的编辑器</p>
 </blockquote>
-<p>根据这里的介绍，我猜测是因为<code>_init()</code>初始化更早，它是在实例化对象的脚本时调用的。子类脚本实例化的时候肯定要先实例化父类脚本，因此会依次调用<code>_init()</code>。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>除构造函数外，其他的虚函数仍会被子类的同名函数覆盖。若想调用父类的<code>_ready()</code>，两种方法：</p>
-<ol>
-<li>子类不写<code>_ready()</code></li>
-<li>在子类中调用父类同名函数： <figure><div class="code-wrapper"><pre class="line-numbers language-gdscript" data-language="gdscript"><code class="language-gdscript"><span class="token comment"># 子类-animal.gd</span>
-<span class="token keyword">extends</span> <span class="token string">"res://Scripts/base_animal.gd"</span>
-
-<span class="token keyword">func</span> <span class="token function">_ready</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-></span> <span class="token class-name">void</span><span class="token punctuation">:</span>
-    <span class="token function">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment"># 或者 super._ready()</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></div></figure></li>
-</ol>
+<p>目前这个UI就是我预备要做的仓库UI，用来收集收获的动物产物。</p>
 
                 
               </div>
@@ -424,7 +387,7 @@ animal<span class="token punctuation">.</span><span class="token function">_init
     
       <span class="category-chain">
         
-  <a href="/categories/Godot/" class="category-chain-item">Godot</a>
+  <a href="/categories/Farm/" class="category-chain-item">Farm</a>
   
   
 
@@ -441,6 +404,8 @@ animal<span class="token punctuation">.</span><span class="token function">_init
       
         <a href="/tags/Godot/" class="print-no-link">#Godot</a>
       
+        <a href="/tags/UI/" class="print-no-link">#UI</a>
+      
     </div>
   
 </div>
@@ -451,8 +416,8 @@ animal<span class="token punctuation">.</span><span class="token function">_init
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>godot类的继承研究</div>
-      <div>https://aliercat.github.io/2025/03/15/godot类的继承研究/</div>
+      <div>项目farm的UI逻辑</div>
+      <div>https://aliercat.github.io/2025/03/31/项目farm的UI逻辑/</div>
     </div>
     <div class="license-meta">
       
@@ -464,7 +429,7 @@ animal<span class="token punctuation">.</span><span class="token function">_init
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年3月15日</div>
+          <div>2025年3月31日</div>
         </div>
       
       
@@ -496,18 +461,12 @@ animal<span class="token punctuation">.</span><span class="token function">_init
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/16/godot%E8%87%AA%E5%AE%9A%E4%B9%89%E4%BF%A1%E5%8F%B7/" title="godot自定义信号">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">godot自定义信号</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/03/15/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2025/03/21/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84%E7%B1%BB%E7%9A%84%E9%80%BB%E8%BE%91/" title="项目farm的类的逻辑">
+                        <span class="hidden-mobile">项目farm的类的逻辑</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

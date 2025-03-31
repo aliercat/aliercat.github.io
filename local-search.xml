@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>项目farm的UI逻辑</title>
+    <link href="/2025/03/31/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/"/>
+    <url>/2025/03/31/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/</url>
+    
+    <content type="html"><![CDATA[<p>在项目中，UI的逻辑也很重要。首先需要确定相对于显示的场景物体而言，项目应该用多大尺寸作为预设开发。</p><p>在Godot中，游戏世界的可见区域叫做视口（Viewport），它决定如何将游戏内容渲染到屏幕上；窗口（Window）是操作系统层面的窗口。</p><blockquote><p>在Godot针对桌面平台开发时，视口大小也是初始化的窗口大小</p></blockquote><p>由于要开发一款类似桌面牧场的项目，项目的视口不能像通常的分辨率如640x320(16:9)，320x240(4:3)一样设置，本项目采用640x160(4:1)的视口，在场景中的Camera2D的Zoom采用2，这样显示时ai小鸡的移动不会有“掉帧”的感觉；这个时候实际渲染的尺寸就会变成320x80，相当于这里的每个像素映射到640x160窗口的四个像素，这样做后ai小鸡移动的“掉帧”现象就消失了，如<a href="#1">图1</a>。</p><blockquote><p>我在摄像头范围的边缘加了边界，ai小鸡掉到边界地面上，移动的范围不会超过摄像头的捕捉范围</p></blockquote><p><a id='1'></a><br><img src="/../image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image1.png" alt="图1"><br>但Zoom&#x3D;2会导致另一个问题：这个相当于放大镜观察，如果要设置游戏内UI，怎么布局UI的位置呢，总不能手动调整吧？</p><p><strong>CanvasLayer</strong>解决了这一问题，作为一个独立渲染的结点，可以继续在原视口640x160中布局绘制，CanvasLayer会保证UI始终完整地显示在屏幕上，不受摄像机位置&#x2F;缩放的影响。</p><p><a href="#2">图2</a>是我设计的UI界面，放在游戏世界结点下的CanvasLayer中，在编辑器中效果如<a href="#3">图3</a>，可以看到它实际还是占了640x160的布局，但是运行起来后，效果如<a href="#4">图4</a>。<br><a id='2'></a><br><img src="/../image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image2.png" alt="图2"><br><a id='3'></a><br><img src="/../image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image3.png" alt="图3"><br><a id='4'></a><br><img src="/../image/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84UI%E9%80%BB%E8%BE%91/image4.png" alt="图4"></p><blockquote><p>中间的小方格子渲染被我重置了，不用在意，我的项目背景是透明的，所以看得到我的编辑器</p></blockquote><p>目前这个UI就是我预备要做的仓库UI，用来收集收获的动物产物。</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Farm</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Godot</tag>
+      
+      <tag>UI</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>项目farm的类的逻辑</title>
     <link href="/2025/03/21/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84%E7%B1%BB%E7%9A%84%E9%80%BB%E8%BE%91/"/>
     <url>/2025/03/21/%E9%A1%B9%E7%9B%AEfarm%E7%9A%84%E7%B1%BB%E7%9A%84%E9%80%BB%E8%BE%91/</url>
@@ -17,6 +44,14 @@
       
     </categories>
     
+    
+    <tags>
+      
+      <tag>Godot</tag>
+      
+      <tag>Class</tag>
+      
+    </tags>
     
   </entry>
   
@@ -39,7 +74,9 @@
     
     <tags>
       
-      <tag>godot</tag>
+      <tag>Godot</tag>
+      
+      <tag>Signal</tag>
       
     </tags>
     
@@ -64,7 +101,7 @@
     
     <tags>
       
-      <tag>godot</tag>
+      <tag>Godot</tag>
       
     </tags>
     
